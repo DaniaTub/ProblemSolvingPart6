@@ -16,7 +16,7 @@ public class SolutionSix
 
     public void remove(int key)
     {
-        if(key>=arr.length) // if array is too small to accomodate key, extend it.
+        if(key>=arr.length)
             extend(key);
             arr[key]=false;
     }
@@ -28,8 +28,7 @@ public class SolutionSix
         return arr[key]==true;
     }
     public void extend(int key){
-        arr= Arrays.copyOf(arr, key+2);  // extend array to one more item than necessary, we need "key" items.
-        // we give "key+1" items to reduce collisions.
+        arr= Arrays.copyOf(arr, key+2);
     }
 
 }
