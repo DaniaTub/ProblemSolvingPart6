@@ -6,50 +6,23 @@ public class SolutionEight
 {
     public boolean checkValid(int[][] matrix)
     {
-        HashSet<Integer> myset=new HashSet<>();
 
+        int n = matrix.length;
 
-        for(int i=0;i<matrix.length;i++)
-        {
-            for(int j=1;j<=matrix.length;j++)
-            {
-                myset.add(j);
+        for (int i = 0; i < n; i++) {
+            HashSet<Integer> r_set = new HashSet();
+            HashSet<Integer> c_set = new HashSet();
+            for (int j = 0; j < n; j++) {
+
+                r_set.add(matrix[i][j]) ;
+                c_set.add(matrix[j][i]) ;
             }
-            for(int j=0;j<matrix.length;j++)
-            {
-                if(myset.contains(matrix[i][j]))
-                {
-                    myset.remove(matrix[i][j]);
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            myset.clear();
-        }
-        for(int i=0;i<matrix.length;i++)
-        {
-            for(int j=1;j<=matrix.length;j++)
-            {
-                myset.add(j);
-            }
-            for(int j=0;j<matrix.length;j++)
-            {
-                if(myset.contains(matrix[j][i]))
-                {
-                    myset.remove(matrix[j][i]);
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            myset.clear();
+            if (r_set.size() != n || c_set.size() != n)
+                return false;
         }
         return true;
-    }
 
+    }
 
 
     }
